@@ -1,0 +1,18 @@
+def filtrer(source, destination):
+
+# Ouverture du fichier source
+source = open("table.csv", "r")
+ 
+# Ouverture du fichier destination
+destination = open("out.csv", "w")
+ 
+ 
+# Appeler la fonction de traitement
+filtrer(source, destination)
+ 
+ 
+# Fermeture du fichier destination
+destination.close()
+ 
+# Fermerture du fichier source
+source.close()

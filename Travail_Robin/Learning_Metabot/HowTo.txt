@@ -1,0 +1,20 @@
+Ce fichier explique la méthode employé pour apprendre de nouveaux mouvements au Metabot.
+
+I Record
+
+Branchez le Metabot en USB.
+Lancez sudo screen /dev/ttyACM0 115200.
+Puis utilisez la commande C-a C-H pour créer un log de la communication.
+
+Lancez la commande "learning" du Metabot.
+
+Faites faire les mouvements au Metabot.
+
+Terminer l'enregistrement par un C-a \ et débranchez le Metabot pour le reboot.
+
+II Analyse et Application des splines TODO
+
+fichier splines.py = spline cubic calculé avec Python.
+
+
+III Upload sur le Metabot TODO
