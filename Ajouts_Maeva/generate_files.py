@@ -5,6 +5,7 @@ import Create_motor # fonction filter1
 import Create_motor12 # fonction filter12
 import Filter_Errors # fonction filter_errors
 import Clear # fonction clear
+import Clear2 # fonction clear
 
 
 
@@ -30,7 +31,7 @@ else:
     Clear.clear(motor_filtered, motor_interpolation)
 
     name_txt = name.split(".")[0] + ".txt"
-    Clear.clear(motor12_filtered, name_txt)
+    Clear2.clear(motor12_filtered, name_txt)
 
     os.remove(motor12)
     os.remove(motor12_filtered)
