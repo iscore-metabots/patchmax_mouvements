@@ -11,8 +11,9 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
     src = open(source,"r")
 
     # Avancee jusqu'a ligne depart
-    for i in range(1, ligne_depart):
+    for i in range(ligne_depart):
         src.readline()
+
 
     # Stockage des valeurs du moteur
     valeurs_moteur = []
@@ -38,6 +39,6 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
 
 
 
-print interpolation(4,1,500, "screenlog_motor_filtered_cleared.txt")
+print interpolation(3,1,500, "NAME_interpolation.txt")
 
 
