@@ -38,6 +38,6 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
 
 
 
-print interpolation(4,1,500, "screenlog.motor.txt")
+print interpolation(4,1,500, "screenlog_motor_filtered.txt")
 
 

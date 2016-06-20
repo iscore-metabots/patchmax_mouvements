@@ -3,8 +3,10 @@ import os, sys
 def filter_calc_errors(src, dst):
     
     # Recopiage de l'entete "specialmove"
-    entete = src.readline()
-    dst.write(entete)
+    entete = ""
+    while(entete != "specialmove"):
+        entete = src.readline().rstrip('\n\r')
+    dst.write("specialmove\n")
     
     # Recopiage de la premiere ligne
     ligne_courante = src.readline()

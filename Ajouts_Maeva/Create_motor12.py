@@ -36,7 +36,7 @@ else:
 	 
 	# Ouverture du fichier destination
 	name = sys.argv[1].split(".")
-	dst = name[0] + ".1.txt"
+	dst = name[0] + "_motor12.txt"
 	destination = open(dst, "w")
 	
 	try:

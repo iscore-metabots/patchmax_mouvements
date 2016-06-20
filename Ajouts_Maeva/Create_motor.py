@@ -2,7 +2,7 @@ import os, sys
 
 def filter1(src, dst):
     entete = ""
-    res = "motor"
+    res = "specialmove\nmotor"
     while(entete != "The learning mode will be enabled, you'll need to reboot the board to return to normal operation"):
         entete = src.readline().rstrip('\n\r')
 
@@ -25,7 +25,7 @@ else:
         
     # Ouverture du fichier destination
     name = sys.argv[1].split(".")
-    dst = name[0] + ".motor.txt"
+    dst = name[0] + "_motor.txt"
     destination = open(dst, "w")
         
     try:
