@@ -8,7 +8,7 @@ def clear(source, destination):
     entete = ""
     while(entete != "specialmove"):
         entete = src.readline().rstrip('\n\r')
-    dst.write(entete)
+    dst.write("specialmove\n")
     
     # Recopiage de la premiere ligne
     ligne_courante = src.readline()
