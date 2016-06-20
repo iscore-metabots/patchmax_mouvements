@@ -6,13 +6,7 @@ Enregistrer un mouvement:
 	- lancer commande "ctrl-a H" —> lance l’enregistrement
 	- faire manuellement au robot le mouvement souhaité
 	- lancer commande "ctrl-a \" (ou fermer le terminal, ou éteindre le robot) —> stoppe l’enregistrement
-	- lancer commande "python generate_files.py <nom_mouvement>" -> création de "<nom_mouvement.txt>" + fichiers utiles à l'interpolation
-
-
-
-Supprimer tous les fichiers sauf celui du mouvement:
-====================================================
-	-lancer commande "python remove_files.py <nom_mouvement>"
+	- lancer commande "python generate_files.py <nom_mouvement>" -> création de "<nom_mouvement.txt>" + fichier utile à l'interpolation
 
 
 

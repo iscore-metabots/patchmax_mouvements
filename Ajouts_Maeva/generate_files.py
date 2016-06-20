@@ -26,12 +26,14 @@ else:
     motor12_filtered = motor12.split(".")[0] + "_filtered.txt"
     Filter_Errors.filter_errors(motor12, motor12_filtered)
 
-    motor_filtered_cleared = motor_filtered.split(".")[0] + "_cleared.txt"
-    Clear.clear(motor_filtered, motor_filtered_cleared)
-
-    motor12_filtered_cleared = motor12_filtered.split(".")[0] + "_cleared.txt"
-    Clear.clear(motor12_filtered, motor12_filtered_cleared)
+    motor_interpolation = name.split(".")[0] + "_interpolation.txt"
+    Clear.clear(motor_filtered, motor_interpolation)
 
     name_txt = name.split(".")[0] + ".txt"
     Clear.clear(motor12_filtered, name_txt)
+
+    os.remove(motor12)
+    os.remove(motor12_filtered)
+    os.remove(motor)
+    os.remove(motor_filtered)
 
