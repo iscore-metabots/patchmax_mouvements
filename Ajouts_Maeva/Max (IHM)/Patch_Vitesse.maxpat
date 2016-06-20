@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 184.0, 85.0, 990.0, 1169.0 ],
+		"rect" : [ 1071.0, 79.0, 990.0, 1169.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -37,6 +37,19 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 681.0, 257.0, 31.0, 22.0 ],
+					"style" : "",
+					"text" : "500"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-10",
 					"maxclass" : "comment",
@@ -67,22 +80,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 681.0, 287.0, 49.0, 22.0 ],
+					"patching_rect" : [ 681.0, 297.0, 49.0, 22.0 ],
 					"style" : "",
 					"text" : "size $1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-65",
-					"maxclass" : "number",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 681.0, 244.0, 50.0, 22.0 ],
-					"style" : ""
 				}
 
 			}
@@ -195,9 +195,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 261.5, 115.0, 105.0, 22.0 ],
+					"patching_rect" : [ 261.5, 115.0, 97.0, 22.0 ],
 					"style" : "",
-					"text" : "Lancer mouv naw"
+					"text" : "Lancer mouv #1"
 				}
 
 			}
@@ -220,9 +220,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "bang", "int" ],
-					"patching_rect" : [ 244.0, 787.0, 71.0, 22.0 ],
+					"patching_rect" : [ 244.0, 787.0, 63.0, 22.0 ],
 					"style" : "",
-					"text" : "text naw.txt"
+					"text" : "text #1.txt"
 				}
 
 			}
@@ -233,9 +233,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "bang", "int" ],
-					"patching_rect" : [ 307.5, 297.0, 71.0, 22.0 ],
+					"patching_rect" : [ 307.5, 297.0, 63.0, 22.0 ],
 					"style" : "",
-					"text" : "text naw.txt"
+					"text" : "text #1.txt"
 				}
 
 			}
@@ -255,14 +255,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-44",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 244.0, 728.930664, 50.0, 35.0 ],
+					"patching_rect" : [ 244.0, 728.930664, 50.0, 22.0 ],
 					"style" : "",
-					"text" : "line 2098"
+					"text" : "line 1"
 				}
 
 			}
@@ -374,11 +373,11 @@
 					"id" : "obj-1",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "int", "bang" ],
-					"patching_rect" : [ 261.5, 199.0, 65.0, 22.0 ],
+					"numoutlets" : 3,
+					"outlettype" : [ "int", "bang", "bang" ],
+					"patching_rect" : [ 261.5, 199.0, 75.0, 22.0 ],
 					"style" : "",
-					"text" : "trigger 1 b"
+					"text" : "trigger 1 b b"
 				}
 
 			}
@@ -424,14 +423,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-17",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 265.5, 452.0, 43.0, 35.0 ],
+					"patching_rect" : [ 265.5, 452.0, 43.0, 22.0 ],
 					"style" : "",
-					"text" : "max 2098"
+					"text" : "max 1"
 				}
 
 			}
@@ -526,6 +524,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-1", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-50", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -602,6 +609,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-29", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-61", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-3", 0 ]
 				}
 
 			}
@@ -746,15 +762,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-61", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-61", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-65", 0 ]
 				}
 
 			}
