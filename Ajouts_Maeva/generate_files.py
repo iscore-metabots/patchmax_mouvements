@@ -20,9 +20,6 @@ else:
     motor12 = name.split(".")[0] + "_motor12.txt"
     Create_motor12.filter12(name, motor12)
 
-    name_txt = name.split(".")[0] + ".txt"
-    Create_motor12.filter12(name, name_txt)
-
     motor_filtered = motor.split(".")[0] + "_filtered.txt"
     Filter_Errors.filter_errors(motor, motor_filtered)
 
@@ -34,3 +31,7 @@ else:
 
     motor12_filtered_cleared = motor12_filtered.split(".")[0] + "_cleared.txt"
     Clear.clear(motor12_filtered, motor12_filtered_cleared)
+
+    name_txt = name.split(".")[0] + ".txt"
+    Clear.clear(motor12_filtered, name_txt)
+

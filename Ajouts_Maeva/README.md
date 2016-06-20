@@ -1,14 +1,18 @@
 
-Enregistrer un mouvement (fichiers Robin légèrement modifiés + rajout d’une fonction):
-======================================================================================
+Enregistrer un mouvement:
+=========================
 	- installer firmware Robin
-	- lancer commande « sudo screen /dev/cu.ROBOTISBT-120-SSPDev 115200»
-	- lancer commande « ctrl-a H » —> lance l’enregistrement
+	- lancer commande "sudo screen /dev/cu.ROBOTISBT-120-SSPDev 115200"
+	- lancer commande "ctrl-a H" —> lance l’enregistrement
 	- faire manuellement au robot le mouvement souhaité
-	- lancer commande « ctrl-a \ » —> stoppe l’enregistrement
-	- renommer fichier « screenlog.0 » en « nom_mouv.log »
-	- lancer commande « python Filter2.py nom_mouv.log » —> création « nom_mouv.1.txt »
-	- lancer commande « python Filter_Calc_Errors.py nom_mouv.1.txt » —> création « nom_mouv.txt »
+	- lancer commande "ctrl-a \" (ou fermer le terminal, ou éteindre le robot) —> stoppe l’enregistrement
+	- lancer commande "python generate_files.py <nom_mouvement>" -> création de "<nom_mouvement.txt>" + fichiers utiles à l'interpolation
+
+
+
+Supprimer tous les fichiers sauf celui du mouvement:
+====================================================
+	-lancer commande "python remove_files.py <nom_mouvement>"
 
 
 
@@ -16,16 +20,16 @@ Enregistrer un mouvement (fichiers Robin légèrement modifiés + rajout d’une
 Lancer un mouvement (en ligne de commande):
 ===========================================
     - établir une connection bluetooth avec le metabot
-	- lancer commande « python Move.py nom_mouv.txt /dev/cu.ROBOTISBT-120-SSPDEV»
+    - lancer commande "python Move.py nom_mouv.txt /dev/cu.ROBOTISBT-120-SSPDEV"
 	
 
 
 
 Lancer un mouvement depuis screen:
 ==================================
-	- lancer commande « sudo screen /dev/cu.ROBOTISBT-120-SSPDev 115200»
-	- lancer commande « start »
-	- copier/coller le fichier « nom_mouv.txt » dans le screen
+	- lancer commande "sudo screen /dev/cu.ROBOTISBT-120-SSPDev 115200"
+	- lancer commande "start"
+	- copier/coller le fichier "nom_mouv.txt" dans le screen
 
 
 
@@ -33,17 +37,17 @@ Lancer un mouvement depuis screen:
 Lancer un mouvement depuis Max/MSP:
 ===================================
     - établir une connection bluetooth avec le metabot
-	- aller dans le répertoire « Max (IHM) » puis « lib_mouvements » et cliquer sur le mouvement voulu (sera fonctionnel quand la librairie sera créée)
-	- deux patchs sont à disposition: mouvement fixe + mouvement dont la vitesse est contrôlable
+    - aller dans le répertoire "Max_IHM" puis "lib_fixe" ou "lib_vitesse" et cliquer sur le mouvement voulu (sera fonctionnel quand la librairie sera créée)
+    - deux patchs sont à disposition: mouvement fixe + mouvement dont la vitesse est contrôlable
 
 
 
 
 Ajouter un mouvement dans l’interface Max/MSP:
 ==============================================
-    - aller dans le répertoire Max_IHM
-	- copier/coller le modèle de patch (fixe ou vitesse)
-	- marquer le nom du mouvement (le même que le .txt) à la place de "NAME"
+    - aller dans le répertoire "Max_IHM"
+    - copier/coller le modèle de patch (fixe ou vitesse)
+    - marquer le nom du mouvement (le même que le .txt) à la place de "NAME"
 
 
 
