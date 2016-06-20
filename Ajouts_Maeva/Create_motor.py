@@ -1,6 +1,9 @@
 import os, sys
 
-def filter1(src, dst):
+def filter1(source, destination):
+    src = open(source, "r")
+    dst = open(destination, "w")
+    
     entete = ""
     res = "specialmove\nmotor"
     while(entete != "The learning mode will be enabled, you'll need to reboot the board to return to normal operation"):
@@ -15,8 +18,12 @@ def filter1(src, dst):
         else:
             res = res + " " + donnees[1]
 
+    src.close()
+    dst.close()
+    return
 
 
+"""
 if len(sys.argv) != 2:
     print "Usage : python Filter1.py <source>"
 else:
@@ -34,3 +41,4 @@ else:
     finally:
         destination.close()
         source.close()
+"""

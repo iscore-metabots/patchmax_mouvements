@@ -1,6 +1,8 @@
 import os, sys
 
-def filter_calc_errors(src, dst):
+def filter_errors(source, destination):
+    src = open(source, "r")
+    dst = open(destination, "w")
     
     # Recopiage de l'entete "specialmove"
     entete = ""
@@ -30,12 +32,15 @@ def filter_calc_errors(src, dst):
         res = res + '\n'
         dst.write(res)
         ligne_courante = ligne_suivante
+
+    src.close()
+    dst.close()
     return
 
 
 
 
-
+"""
 if len(sys.argv) != 2:
     print "Usage: python Filter_Calc_Errors.py <source>"
 else:
@@ -49,9 +54,10 @@ else:
 
     try:
         # Appel de la fonction de tri
-        filter_calc_errors(source, destination)
+        filter_errors(source, destination)
 
     finally:
         # Fermeture des fichiers
         destination.close()
         source.close()
+"""

@@ -1,7 +1,9 @@
 import os, sys
 
 
-def clear(src, dst):
+def clear(source, destination):
+    src = open(source, "r")
+    dst = open(destination, "w")
     # Recopiage de l'entete "specialmove"
     entete = ""
     while(entete != "specialmove"):
@@ -34,11 +36,14 @@ def clear(src, dst):
             ligne_courante = ligne_suivante
         else:
             ligne_courante = ligne_suivante
+
+    src.close()
+    dst.close()
     return
 
 
     
-
+"""
 if len(sys.argv) != 2:
     print "Usage: python Clear.py <source>"
 else:
@@ -58,3 +63,4 @@ else:
         # Fermeture des fichiers
         source.close()
         destination.close()
+"""
