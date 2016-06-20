@@ -16,7 +16,7 @@ Enregistrer un mouvement (fichiers Robin légèrement modifiés + rajout d’une
 Lancer un mouvement (en ligne de commande):
 ===========================================
     - établir une connection bluetooth avec le metabot
-	- lancer commande « python Move.py nom_mouv.txt »
+	- lancer commande « python Move.py nom_mouv.txt /dev/cu.ROBOTISBT-120-SSPDEV»
 	
 
 
@@ -41,10 +41,9 @@ Lancer un mouvement depuis Max/MSP:
 
 Ajouter un mouvement dans l’interface Max/MSP:
 ==============================================
-	- copier/coller le patch d’un autre mouvement
-	- changer les « ancien_nom.txt » en « nom_voulu.txt »
-	- changer les « lancer mouv ancien_nom » en « lancer mouv nom_voulu »
-	- le nouveau patch est alors fonctionnel
+    - aller dans le répertoire Max_IHM
+	- copier/coller le modèle de patch (fixe ou vitesse)
+	- marquer le nom du mouvement (le même que le .txt) à la place de "NAME"
 
 
 
