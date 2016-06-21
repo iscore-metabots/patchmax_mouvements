@@ -45,4 +45,11 @@ interpolation(3,1,600, "NAME_interpolation.txt")
 interpolation(4,1,600, "NAME_interpolation.txt")
 interpolation(5,1,600, "NAME_interpolation.txt")
 interpolation(6,1,600, "NAME_interpolation.txt")
+interpolation(7,1,600, "NAME_interpolation.txt")
+interpolation(8,1,600, "NAME_interpolation.txt")
+interpolation(9,1,600, "NAME_interpolation.txt")
+interpolation(10,1,600, "NAME_interpolation.txt")
+interpolation(11,1,600, "NAME_interpolation.txt")
+interpolation(12,1,600, "NAME_interpolation.txt")
+
 
