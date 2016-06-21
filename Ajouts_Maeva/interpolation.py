@@ -3,7 +3,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 
-
+def lissage(Lx, Ly, p):
+    Lxout=[]
+    Lyout=[]
+    Lxout= Lx[p: -p]
+    for i in range(p, len(Ly)-p):
+        val = 0
+        for k in range(2*p):
+            val += float(Ly[i-p+k])
+        Lyout.append(val/2/p)
+    return Lxout, Lyout
+    
 
 def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
 
@@ -23,13 +33,15 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
     # Temps
     temps = np.arange(ligne_arrivee - ligne_depart + 1)
 
+    temps, valeurs_moteur = lissage(temps,valeurs_moteur,10)
+
     # Interpolation
     f1 = interp1d(temps, valeurs_moteur) # lineaire
     f2 = interp1d(temps, valeurs_moteur, kind='cubic') #cubique
 
     # Affichage
-    xnew = np.linspace(ligne_depart, ligne_arrivee-1, ligne_arrivee*10)
-    plt.plot(temps, valeurs_moteur, 'o', xnew, f1(xnew), '.', xnew, f2(xnew), '-')
+    xnew = np.linspace(10, ligne_arrivee - ligne_depart-10, ligne_arrivee*10)
+    plt.plot(xnew, f2(xnew), '-')
     plt.show()
 
     # Valeur de retour = interpolation cubique
@@ -38,6 +50,6 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
 
 
 
-print interpolation(4,1,500, "screenlog_motor_filtered_cleared.txt")
+print interpolation(12,3,600, "screenlog_average.txt")
 
 
