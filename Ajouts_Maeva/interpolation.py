@@ -49,10 +49,3 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
 
     # Valeur de retour = interpolation cubique
     return f2
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> ajout_generation_graphes
