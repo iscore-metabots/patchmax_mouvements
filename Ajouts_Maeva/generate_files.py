@@ -6,7 +6,6 @@ import Create_motor12 # fonction filter12
 import Filter_Errors # fonction filter_errors
 import Clear # fonction clear
 import Clear2 # fonction clear
-import Average_Filter # fonction average_filter
 
 
 
@@ -30,10 +29,6 @@ else:
     motor_interpolation = name.split(".")[0] + "_interpolation.txt"
     Clear.clear(motor_filtered, motor_interpolation)
 
-    """
-    # Rassemble les valeurs proches
-    motor_average = name.split(".")[0] + "_average.txt"
-    Average_Filter.average_filter(motor_interpolation, motor_average, 1)"""
 
     
     # FICHIERS MOUVEMENT

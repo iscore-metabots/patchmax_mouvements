@@ -36,20 +36,20 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
     temps, valeurs_moteur = lissage(temps,valeurs_moteur,10)
 
     # Interpolation
-    f1 = interp1d(temps, valeurs_moteur) # lineaire
     f2 = interp1d(temps, valeurs_moteur, kind='cubic') #cubique
 
     # Affichage
+    fig = plt.figure()
     xnew = np.linspace(10, ligne_arrivee - ligne_depart-10, ligne_arrivee*10)
     plt.plot(xnew, f2(xnew), '-')
-    plt.show()
+    name = "motor" + str(id_moteur) + ".png"
+    fig.savefig(name)
+    print "%s : DONE" % name
+    
 
     # Valeur de retour = interpolation cubique
     return f2
 
 
-
-
-print interpolation(12,3,600, "screenlog_average.txt")
 
 
