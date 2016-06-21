@@ -39,6 +39,10 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
 
 
 
-print interpolation(3,1,500, "NAME_interpolation.txt")
-
+interpolation(1,1,600, "NAME_interpolation.txt")
+interpolation(2,1,600, "NAME_interpolation.txt")
+interpolation(3,1,600, "NAME_interpolation.txt")
+interpolation(4,1,600, "NAME_interpolation.txt")
+interpolation(5,1,600, "NAME_interpolation.txt")
+interpolation(6,1,600, "NAME_interpolation.txt")
 
