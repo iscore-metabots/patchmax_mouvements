@@ -31,7 +31,9 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
     fig = plt.figure()
     xnew = np.linspace(ligne_depart, ligne_arrivee-1, ligne_arrivee*10)
     plt.plot(xnew, f2(xnew), '-')
-    plt;show()
+    name = "motor" + str(id_moteur) + ".png"
+    fig.savefig(name)
+    print "%s : DONE" % name
 
     # Valeur de retour = interpolation cubique
     return f2
