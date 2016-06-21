@@ -15,5 +15,5 @@ else:
 
     print("Drawing graphs...\n")
     for i in range(1,13):
-        interpolation.interpolation(i,2,taille-1,source)
+        interpolation.interpolation(i,2,taille-1,source,70)
     print("\nDrawing ended successfully\n")
