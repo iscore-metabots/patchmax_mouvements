@@ -29,7 +29,7 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
 
     # Affichage
     fig = plt.figure()
-    xnew = np.linspace(ligne_depart, ligne_arrivee-1, ligne_arrivee*10)
+    xnew = np.linspace(10, ligne_arrivee-ligne_depart-10, ligne_arrivee*10)
     plt.plot(xnew, f2(xnew), '-')
     name = "motor" + str(id_moteur) + ".png"
     fig.savefig(name)
@@ -38,20 +38,5 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
     # Valeur de retour = interpolation cubique
     return f2
 
-
-
-
-interpolation(1,1,600, "NAME_interpolation.txt")
-interpolation(2,1,600, "NAME_interpolation.txt")
-interpolation(3,1,600, "NAME_interpolation.txt")
-interpolation(4,1,600, "NAME_interpolation.txt")
-interpolation(5,1,600, "NAME_interpolation.txt")
-interpolation(6,1,600, "NAME_interpolation.txt")
-interpolation(7,1,600, "NAME_interpolation.txt")
-interpolation(8,1,600, "NAME_interpolation.txt")
-interpolation(9,1,600, "NAME_interpolation.txt")
-interpolation(10,1,600, "NAME_interpolation.txt")
-interpolation(11,1,600, "NAME_interpolation.txt")
-interpolation(12,1,600, "NAME_interpolation.txt")
 
 
