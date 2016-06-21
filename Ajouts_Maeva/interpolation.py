@@ -15,7 +15,7 @@ def lissage(Lx, Ly, p):
     return Lxout, Lyout
     
 
-def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
+def interpolation(id_moteur, ligne_depart, ligne_arrivee, source, k):
 
     # Ouverture fichier source
     src = open(source,"r")
@@ -33,14 +33,14 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
     # Temps
     temps = np.arange(ligne_arrivee - ligne_depart + 1)
 
-    temps, valeurs_moteur = lissage(temps,valeurs_moteur,10)
+    temps, valeurs_moteur = lissage(temps,valeurs_moteur,k)
 
     # Interpolation
     f2 = interp1d(temps, valeurs_moteur, kind='cubic') #cubique
 
     # Affichage
     fig = plt.figure()
-    xnew = np.linspace(10, ligne_arrivee - ligne_depart-10, ligne_arrivee*10)
+    xnew = np.linspace(k, ligne_arrivee - ligne_depart-k, ligne_arrivee*10)
     plt.plot(xnew, f2(xnew), '-')
     name = "motor" + str(id_moteur) + ".png"
     fig.savefig(name)
