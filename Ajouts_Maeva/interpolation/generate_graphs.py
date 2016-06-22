@@ -1,10 +1,10 @@
 import os, sys
 
-import interpolation # fonction interpolation
+import regression_polynomiale # fonction regression
 
 
 if len(sys.argv) != 2:
-    print "Usage: python generate_graphs.py <source>"
+    print "Usage: python generate_graphs.py <source_interpolation.txt>"
 else:
     source = sys.argv[1]
     src = open(source, "r")
@@ -15,5 +15,8 @@ else:
 
     print("Drawing graphs...\n")
     for i in range(1,13):
-        interpolation.interpolation(i,2,taille-1,source,70)
+        regression_polynomiale.regression(i,2,taille-1,source,10,20)
+        # toujours commencer ligne 2 (evite "specialmove")
+        # 10 est le degre du polynome
+        # 70 est le coefficient du lissage
     print("\nDrawing ended successfully\n")
