@@ -18,5 +18,5 @@ else:
         regression_polynomiale.regression(i,2,taille-1,source,10,20)
         # toujours commencer ligne 2 (evite "specialmove")
         # 10 est le degre du polynome
-        # 70 est le coefficient du lissage
+        # 20 est le coefficient du lissage
     print("\nDrawing ended successfully\n")
