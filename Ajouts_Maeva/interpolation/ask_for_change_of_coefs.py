@@ -5,8 +5,13 @@ def ask(source,degree):
 
     coefs = get_coefficients.entire_regression(source,degree)
 
-    reponse = input("\nDo you want to change the initial coefficients of the regression ? (o/n) : ")
-    print("Your answer : ", reponse)
+    response = input("\nChange initial coefficients of movement ? (yes:1 / no:2) : ")
+    if(response == 1):
+        for i in range(1,13):
+            question = "Change motor" + str(i) +" ? (yes:1 / no:2) : "
+            response = input(question)
+    else:
+        print coefs
     
 
 

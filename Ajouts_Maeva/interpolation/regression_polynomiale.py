@@ -59,7 +59,7 @@ def regression(id_moteur, ligne_depart, ligne_arrivee, source, degre, liss_param
         plt.plot(temps, valeurs_moteur, '.', xnew, polynome(xnew), '-')
         name = "img/motor" + str(id_moteur) + ".png"
         fig.savefig(name)
-        print "%s : DONE" % name
+        print("%s : DONE" % name)
 
     # Valeur de retour = coefficients de le regression polynomiale
     coefficients = []
