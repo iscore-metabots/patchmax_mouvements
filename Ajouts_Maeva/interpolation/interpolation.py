@@ -30,7 +30,7 @@ def interpolation(id_moteur, ligne_depart, ligne_arrivee, source):
     # Affichage
     fig = plt.figure()
     xnew = np.linspace(10, ligne_arrivee-ligne_depart-10, ligne_arrivee*10)
-    plt.plot(xnew, f2(xnew), '-')
+    plt.plot(xnew, f2(xnew), '-', temps, valeurs_moteur, '.')
     name = "motor" + str(id_moteur) + ".png"
     fig.savefig(name)
     print "%s : DONE" % name
