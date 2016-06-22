@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 """
-c = np.polyfit(x,y,degre)
--> c = tab des coefs
+c = np.polyfit(x,y,d)
+-> c = tab des coefs du polynome de degre d
 """
 
 
@@ -55,7 +55,7 @@ def regression(id_moteur, ligne_depart, ligne_arrivee, source, degre, liss_param
     # Affichage
     fig = plt.figure()
     xnew = np.linspace(2, ligne_arrivee-ligne_depart -1, ligne_arrivee*10)
-    plt.plot(temps, valeurs_moteur, 'o', xnew, polynome(xnew), '-')
+    plt.plot(temps, valeurs_moteur, '.', xnew, polynome(xnew), '-')
     name = "motor" + str(id_moteur) + ".png"
     fig.savefig(name)
     print "%s : DONE" % name
