@@ -3,7 +3,7 @@ import os, sys
 import regression_polynomiale # fonction regression
 
 
-def entire_regression(source):
+def entire_regression(source, degree):
 
     # Get size
     src = open(source, "r")
@@ -15,9 +15,9 @@ def entire_regression(source):
     # Get coefs
     coefs = [[],[],[],[],[],[],[],[],[],[],[],[]]
     for moteur in range(0,12):
-        coefs[moteur] = regression_polynomiale.regression(moteur+1,2,taille-1,source,10,20,0)
+        coefs[moteur] = regression_polynomiale.regression(moteur+1,2,taille-1,source,degree,20,0)
         # toujours commencer ligne 2 (evite "specialmove")
-        # 10 est le degre du polynome
+        # degree est le degre du polynome
         # 20 est le coefficient du lissage
         # le 0 final signifie qu'on ne cree pas de graphes
     return coefs
