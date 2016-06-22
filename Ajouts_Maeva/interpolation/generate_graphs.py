@@ -8,15 +8,16 @@ if len(sys.argv) != 2:
 else:
     source = sys.argv[1]
     src = open(source, "r")
-    taille = 0;
+    taille = 0
     for line in src:
-        taille += 1;
+        taille += 1
     src.close()
 
     print("Drawing graphs...\n")
-    for i in range(1,13):
-        regression_polynomiale.regression(i,2,taille-1,source,10,20)
+    for moteur in range(1,13):
+        regression_polynomiale.regression(moteur,2,taille-1,source,10,20,1)
         # toujours commencer ligne 2 (evite "specialmove")
         # 10 est le degre du polynome
         # 20 est le coefficient du lissage
+        # le 1 final signifie qu'on cree les graphes
     print("\nDrawing ended successfully\n")

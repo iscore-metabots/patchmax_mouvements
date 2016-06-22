@@ -21,7 +21,7 @@ def lissage(Lx, Ly, p):
 
 
 
-def regression(id_moteur, ligne_depart, ligne_arrivee, source, degre, liss_param):
+def regression(id_moteur, ligne_depart, ligne_arrivee, source, degre, liss_param, create_graphs = 1):
 
     # Ouverture fichier source
     src = open(source,"r")
@@ -53,15 +53,21 @@ def regression(id_moteur, ligne_depart, ligne_arrivee, source, degre, liss_param
     polynome = np.poly1d(coefs)
     
     # Affichage
-    fig = plt.figure()
-    xnew = np.linspace(2, ligne_arrivee-ligne_depart -1, ligne_arrivee*10)
-    plt.plot(temps, valeurs_moteur, '.', xnew, polynome(xnew), '-')
-    name = "motor" + str(id_moteur) + ".png"
-    fig.savefig(name)
-    print "%s : DONE" % name
+    if(create_graphs):
+        fig = plt.figure()
+        xnew = np.linspace(2, ligne_arrivee-ligne_depart -1, ligne_arrivee*10)
+        plt.plot(temps, valeurs_moteur, '.', xnew, polynome(xnew), '-')
+        name = "motor" + str(id_moteur) + ".png"
+        fig.savefig(name)
+        print "%s : DONE" % name
 
     # Valeur de retour = coefficients de le regression polynomiale
-    return coefs
+    coefficients = []
+    for i in range(degre + 1):
+        coefficients += [coefs[i]]
+    return coefficients
+
+
 
 
 
