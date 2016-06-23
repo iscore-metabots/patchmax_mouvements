@@ -1,12 +1,12 @@
 import os, sys
+import numpy as np
 
-if len(sys.argv) != 2:
-    print("Usage: python regenerate_files.py <txt/source_coefs.txt> <degre> <nombre_lignes_initial> <temps_total_sec>")
+if len(sys.argv) != 3:
+    print("Usage: python regenerate_files.py <txt/source_coefs.txt> <nombre_lignes_initial>")
 
 else:
     source = open(sys.argv[1], "r")
-    degree = int(sys.argv[2])
-    taille = int(sys.argv[3])
+    taille = int(sys.argv[2])
     coefs = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
     # Recuperation coefs
@@ -18,27 +18,36 @@ else:
         i += 1
 
     # Creation polynomes
-    polynomes = []
+    polynomes = [[],[],[],[],[],[],[],[],[],[],[],[]]
     for i in range(len(coefs)):
-        polynomes[i] = np.poly1d(coefs[i])
+        p = np.poly1d(coefs[i])
+        polynomes[i] = p
 
     # Creation du fichier destination
     src = sys.argv[1].split("_")
-    name = src[0]
-    dst = "interp_" + name + ".txt"
+    name = src[0].split("/")[1]
+    dst = "interpolated_txt/interp_" + name + ".txt"
     destination = open(dst, "w")
 
-    # Constantes utiles
-    nb_lignes_initial = taille
-    nb_valeurs = taille * 10
+    # Constante utile
+    nb_lignes = taille * 2
+    intervalle = taille / nb_lignes
+    tempsEcoule = 0
 
     # Ecriture du fichier destination
     destination.write("specialmove\n")
-    for i in range(taille):
+    for i in range(nb_lignes):
         res = "motor1"
-        for j in range(1,len(polynomes)/2 + 1):
-            res = res + " " + str(polynomes[j]())
-
+        for j in range(len(polynomes)/2):
+            res = res + " " + str(polynomes[j](tempsEcoule))
+        res = res + '\n'
+        destination.write(res)
+        res = "motor2"
+        for j in range(len(polynomes)/2, len(polynomes)):
+            res = res + " " + str(polynomes[j](tempsEcoule))
+        res = res + '\n'
+        destination.write(res)
+        tempsEcoule += intervalle
 
     destination.close()
     source.close()
