@@ -18,7 +18,7 @@ else:
 
     # FICHIERS INTERPOLATION
     # Mets en ligne
-    motor = "txt/" + name.split(".")[0] + "_motor.txt"
+    motor = name.split(".")[0] + "_motor.txt"
     Create_motor.filter1(name, motor)
 
     # Enleve valeurs extremes
@@ -26,18 +26,18 @@ else:
     Filter_Errors.filter_errors(motor, motor_filtered)
 
     # Enleve lignes identiques
-    motor_interpolation = "txt/" + name.split(".")[0] + "_interpolation.txt"
+    motor_interpolation = name.split(".")[0] + "_interpolation.txt"
     Clear.clear(motor_filtered, motor_interpolation)
 
     # Cree fichier des coefficients de l'interpolation
-    motor_coefficients = "txt/" + name.split(".")[0] + "_initial_coefficients.txt"
+    motor_coefficients = name.split(".")[0] + "_initial_coefficients.txt"
     coefficients_textfile.write_coefs(motor_interpolation, motor_coefficients, 10)
 
 
     
     # FICHIERS MOUVEMENT
     # Mets en ligne
-    motor12 = "txt/" + name.split(".")[0] + "_motor12.txt"
+    motor12 = name.split(".")[0] + "_motor12.txt"
     Create_motor12.filter12(name, motor12)
 
     # Enleve les valeurs extremes
@@ -45,7 +45,7 @@ else:
     Filter_Errors.filter_errors(motor12, motor12_filtered)
 
     # Enleve lignes identiques
-    name_txt = "txt/" + name.split(".")[0] + ".txt"
+    name_txt = name.split(".")[0] + ".txt"
     Clear2.clear(motor12_filtered, name_txt)
 
 
