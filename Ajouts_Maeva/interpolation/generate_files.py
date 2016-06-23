@@ -31,7 +31,8 @@ else:
 
     # Cree fichier des coefficients de l'interpolation
     motor_coefficients = name.split(".")[0] + "_initial_coefficients.txt"
-    coefficients_textfile.write_coefs(motor_interpolation, motor_coefficients, 10)
+    motor_coefs_modified = name.split(".")[0] + "_modified_coefficients.txt"
+    coefficients_textfile.write_coefs(motor_interpolation, motor_coefficients, motor_coefs_modified, 10)
 
 
     
