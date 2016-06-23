@@ -4,7 +4,7 @@ import regression_polynomiale # fonction regression
 
 
 if len(sys.argv) != 3:
-    print "Usage: python generate_graphs.py <source_interpolation.txt> <degree of the polynomial-regression>"
+    print "Usage: python generate_graphs.py <txt/source_interpolation.txt> <degree of the polynomial-regression>"
 else:
     source = sys.argv[1]
     src = open(source, "r")
