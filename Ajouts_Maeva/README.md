@@ -1,6 +1,6 @@
 
-Enregistrer un mouvement:
-=========================
+## Enregistrer un mouvement:
+
 * installer firmware Robin (permettant au metabot de comprendre "specialmove", "learning", "motor1" et "motor2")
 * lancer commande "sudo screen \<port serie\> 115200"
 * lancer commande "ctrl-a H" —> lance l’enregistrement
@@ -14,8 +14,8 @@ Enregistrer un mouvement:
 
 
 
-Lancer un mouvement (en ligne de commande):
-===========================================
+## Lancer un mouvement (en ligne de commande):
+
 * établir une connection bluetooth avec le metabot
 * aller dans le répertoire "interpolation"
 * lancer commande "python Move.py txt/nom_mouv.txt \<port serie\>"
@@ -23,8 +23,8 @@ Lancer un mouvement (en ligne de commande):
 
 
 
-Lancer un mouvement depuis screen:
-==================================
+## Lancer un mouvement depuis screen:
+
 * lancer commande "sudo screen \<port serie\> 115200"
 * lancer commande "start"
 * copier/coller l'intégralité du fichier "interpolation/txt/nom_mouv.txt" dans le screen
@@ -32,8 +32,8 @@ Lancer un mouvement depuis screen:
 
 
 
-Lancer un mouvement depuis Max/MSP:
-===================================
+## Lancer un mouvement depuis Max/MSP:
+
 * établir une connection bluetooth avec le metabot
 * aller dans le répertoire "Max_IHM" puis "lib_fixe" ou "lib_vitesse" et cliquer sur le mouvement voulu (sera fonctionnel quand la librairie sera créée)
 * deux patchs sont pour l'instant à disposition: mouvement fixe + mouvement dont la vitesse est contrôlable
@@ -41,8 +41,8 @@ Lancer un mouvement depuis Max/MSP:
 
 
 
-Ajouter un mouvement dans l’interface Max/MSP:
-==============================================
+## Ajouter un mouvement dans l’interface Max/MSP:
+
 * copier/coller le fichier "interpolation/txt/nom_mouv.txt" dans le répertoire "Max_IHM"
 * aller dans le répertoire "Max_IHM/Lib_\<choix\>.maxpat" (choix: fixe ou gestion vitesse)
 * copier/coller le modèle de patch
