@@ -11,8 +11,6 @@ if len(sys.argv) != 3:
 else:
 	# Ouverture du fichier source
 	source = open(sys.argv[1], "r")
-
 	ser= serial.Serial(sys.argv[2])
 	print(ser.name)
-
 	execute(source, ser)
