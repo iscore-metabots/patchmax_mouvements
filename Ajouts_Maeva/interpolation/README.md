@@ -1,5 +1,5 @@
 
-## Fonctions Utilisables:
+## Fonctions Utilisables (5):
 
 * __python generate_files.py \<nom_mouvement_voulu\> :__   
 Nécessite au préalable d'avoir enregistré un mouvement "screenlog.0" dans le répertoire "txt"   
@@ -29,12 +29,12 @@ To be explained soon
 
 ## Ordre d'appel des fonctions:
 
-Appeler _generete\_files.py avant les 4 autres.
+Appeler _generete\_files.py_ avant les 4 autres.
 
 
 
 
-## Fonctions Annexes:
+## Fonctions Annexes (appelées par les fonctions ci-dessus):
 
 * __Create_motor.py / Create_motor12.py :__   
 Créent les fichiers contenant les valeurs des moteurs à des instants successifs à partir de "screenlog.0"
