@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 if len(sys.argv) != 5:
-    print("Usage: python compare_graphs.py <source_initial_coefficients.txt> <source_modified_coefficients.txt> <degree> <longueur_texte_voulue>")
+    print("Usage: python compare_graphs.py <source_initial_coefficients.txt> <source_modified_coefficients.txt> <degree> <longueur_initiale_texte>")
     
 else:
     initial = open(sys.argv[1], "r")
