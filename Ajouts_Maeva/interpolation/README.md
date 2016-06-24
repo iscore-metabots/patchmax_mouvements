@@ -4,11 +4,11 @@
 * __python generate_files.py \<nom_mouvement_voulu\> :__   
 Nécessite au préalable d'avoir enregistré un mouvement "screenlog.0" dans le répertoire "txt"   
 Va créer d'autres fichiers dans le répertoire "txt":      
-    * _mouv.0_
-    * _mouv.txt_
-    * _mouv\_interpolation.txt_
-    * _mouv\_initial\_coefficients.txt_
-    * _mouv\_modified\_coefficiens.txt_
+    * _mouv.0_ : fichier "screenlog.0" renommé
+    * _mouv.txt_ : fichier contenant le mouvement prêt à être envoyé
+    * _mouv\_interpolation.txt_ : fichier servant au calcul des polynomes représentant le mouvement de chaque moteur
+    * _mouv\_initial\_coefficients.txt_ : fichier contenant les coefficients de chaque polynome (un polynome représentant un moteur)
+    * _mouv\_modified\_coefficiens.txt_ : fichier identique au fichier précédent, on peut y changer le dernier nombre de chaque ligne (Ce nombre correspond au terme constant du polynome considéré, cela fera ainsi varier l'amplitude du mouvement par rapport à l'amplitude initiale, si on recalcule le mouvement à partir de ce fichier. Attention: Ne pas modifier les autres coefficients!)
 
 
 ## Fonctions Annexes:
