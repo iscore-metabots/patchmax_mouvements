@@ -9,7 +9,7 @@
 * lancer commande "ctrl-a \" (ou fermer le terminal et éteindre le robot) —> stoppe l’enregistrement
 * déplacer le fichier "screenlog.0" dans le répertoire "interpolation"
 * aller dans le répertoire "interpolation"
-* lancer commande "python generate_files.py \<nom_mouvement\>" -> création de fichiers dans le répertoire "txt"
+* lancer commande "python generate_files.py \<nom_mouvement\>" —> création de fichiers dans le répertoire "txt"
 
 
 

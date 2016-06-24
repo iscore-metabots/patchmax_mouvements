@@ -15,8 +15,8 @@ Dans le répertoire "__img__", crée pour chaque moteur un graphe représentant 
 
 * __python regenerate_files.py \<txt/mouv_initial_coefficients.txt || txt/mouv_modified_coefficients.txt\> \<nombre de lignes dans le "mouv.txt" initial\> :__   
 Crée le fichier "interp_mouv.txt" dans le répertoire "__interpolated_txt__".  
-Ce fichier contient le mouvement généré à partir des polynomes calculés par régression polynomiale.  
-On peut l'appeler avec _mouv\_initial\_coefficients.txt_ou _mouv\_modified\_coefficiens.txt_ suivant si l'on veut sur le mouvement soit identique à celui que l'on a enregistré (tout en étant "lissé"), ou si on veut en faire varier l'amplitude.
+Ce fichier contient le mouvement généré à partir des polynomes calculés par régression polynomiale et par lissage.  
+On peut l'appeler avec _mouv\_initial\_coefficients.txt_ou _mouv\_modified\_coefficiens.txt_ suivant si l'on veut que le mouvement soit identique à celui que l'on a enregistré (tout en étant "lissé"), ou si on veut en faire varier l'amplitude.
 
 * __python compare_graphs.py \<txt/mouv_initial_coefficients.txt\> \<txt/mouv_modified_coefficients.txt\> :__   
 Crée dans le répertoire "__graph_comparison__" un graphe pour chaque moteur représentant le polynome initial associé aux valeurs du moteur, et le polynome modifié par l'utilisateur.
@@ -50,7 +50,7 @@ Enlève les erreurs de calcul produites lors de l'enregistrement
 Enlèvent les lignes successives identiques
 
 * __regression_polynomiale.py :__   
-Calcule le polynome moyen passant par toutes les valeurs d'un moteur
+Fait un "lissage" des différentes valeurs puis calcule le polynome moyen passant par toutes les valeurs d'un moteur
 
 * __get_coefficients.py :__   
 Rassemble les coefficients de tous les polynomes representant l'évolution de chaque moteur
