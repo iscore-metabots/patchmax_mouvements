@@ -31,7 +31,7 @@ else:
 
     # Constante utile
     nb_lignes = taille * 2
-    intervalle = taille / nb_lignes
+    intervalle = (taille * 1.0) / nb_lignes
     tempsEcoule = 0
 
     # Ecriture du fichier destination
