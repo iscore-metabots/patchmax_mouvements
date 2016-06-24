@@ -10,6 +10,29 @@ Va créer d'autres fichiers dans le répertoire "txt":
     * _mouv\_initial\_coefficients.txt_ : fichier contenant les coefficients de chaque polynome (un polynome représentant un moteur)
     * _mouv\_modified\_coefficiens.txt_ : fichier identique au fichier précédent, on peut y changer le dernier nombre de chaque ligne (Ce nombre correspond au terme constant du polynome considéré, cela fera ainsi varier l'amplitude du mouvement par rapport à l'amplitude initiale, si on recalcule le mouvement à partir de ce fichier. Attention: Ne pas modifier les autres coefficients!)
 
+* __python generate\_graphs.py \<txt/mouv\_interpolation.txt\> \<degré du polynome voulu\> :__   
+Crée pour chaque moteur un graphe représentant les valeurs réelles du moteur et le polynome moyen de degré demandé obtenu par régression polynomiale
+
+* __regenerate_files.py :__   
+To be explained soon
+
+
+* __compare_graphs.py :__   
+To be explained soon
+
+
+* __direct_send.py :__   
+To be explained soon
+
+
+
+
+## Ordre d'appel des fonctions:
+
+Appeler _generete\_files.py avant les 4 autres.
+
+
+
 
 ## Fonctions Annexes:
 
