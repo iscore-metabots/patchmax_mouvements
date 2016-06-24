@@ -1,6 +1,18 @@
 
-Fonctions Annexes:
-==================
+## Fonctions Utilisables:
+
+* __python generate_files.py \<nom_mouvement_voulu\> :__   
+Nécessite au préalable d'avoir enregistré un mouvement "screenlog.0" dans le répertoire "txt"   
+Va créer d'autres fichiers dans le répertoire "txt":      
+    * _mouv.0_
+    * _mouv.txt_
+    * _mouv\_interpolation.txt_
+    * _mouv\_initial\_coefficients.txt_
+    * _mouv\_modified\_coefficiens.txt_
+
+
+## Fonctions Annexes:
+
 * __Create_motor.py / Create_motor12.py :__   
 Créent les fichiers contenant les valeurs des moteurs à des instants successifs à partir de "screenlog.0"
 
