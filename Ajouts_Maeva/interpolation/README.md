@@ -1,7 +1,7 @@
 
 ## Fonctions Utilisateur (5):
 
-* __python generate_files.py \<nom_mouvement_voulu\> :__   
+* __python generate_files.py \<nom_mouvement_voulu\> \<degre de la regression polynomiale\> :__   
 Nécessite au préalable d'avoir enregistré un mouvement "screenlog.0" dans le répertoire "txt"   
 Va créer d'autres fichiers dans le répertoire "__txt__":      
     * _mouv.0_ : fichier "screenlog.0" renommé
@@ -18,7 +18,7 @@ Crée le fichier "interp_mouv.txt" dans le répertoire "__interpolated_txt__".
 Ce fichier contient le mouvement généré à partir des polynomes calculés par régression polynomiale et par lissage.  
 On peut l'appeler avec _mouv\_initial\_coefficients.txt_ou _mouv\_modified\_coefficiens.txt_ suivant si l'on veut que le mouvement soit identique à celui que l'on a enregistré (tout en étant "lissé"), ou si on veut en faire varier l'amplitude.
 
-* __python compare_graphs.py \<txt/mouv_initial_coefficients.txt\> \<txt/mouv_modified_coefficients.txt\> :__   
+* __python compare_graphs.py \<txt/mouv_initial_coefficients.txt\> \<txt/mouv_modified_coefficients.txt\> \<nombre de lignes dans le "txt/mouv_interpolation.txt" initial\> :__   
 Crée dans le répertoire "__graph_comparison__" un graphe pour chaque moteur représentant le polynome initial associé aux valeurs du moteur, et le polynome modifié par l'utilisateur.
 
 

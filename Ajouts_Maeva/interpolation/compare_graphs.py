@@ -2,8 +2,8 @@ import os, sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-if len(sys.argv) != 5:
-    print("Usage: python compare_graphs.py <source_initial_coefficients.txt> <source_modified_coefficients.txt> <degree> <longueur_initiale_texte>")
+if len(sys.argv) != 4:
+    print("Usage: python compare_graphs.py <source_initial_coefficients.txt> <source_modified_coefficients.txt> <longueur_initiale_texte>")
     
 else:
     initial = open(sys.argv[1], "r")
@@ -29,7 +29,7 @@ else:
     print("\nGraphs comparison being calculated ...\n")
     for i in range(len(coefs_initial)):
         fig = plt.figure()
-        l = int(sys.argv[4])
+        l = int(sys.argv[3])
         x = np.linspace(2, l-1, l*10)
         init = np.poly1d(coefs_initial[i])
         modif = np.poly1d(coefs_modified[i])

@@ -9,11 +9,12 @@ import Clear2 # fonction clear
 import coefficients_textfile # fonction write_coefs
 
 
-if len(sys.argv) != 2:
-    print "Usage: python generate_files.py nom_mouvement"
+if len(sys.argv) != 3:
+    print "Usage: python generate_files.py <nom_mouvement> <degree-of-regression-polynom>"
 else:
     name = "txt/" + sys.argv[1] + ".0"
     os.rename("txt/screenlog.0", name)
+    degree = int(sys.argv[2])
 
 
     # FICHIERS INTERPOLATION
@@ -32,7 +33,7 @@ else:
     # Cree fichier des coefficients de l'interpolation
     motor_coefficients = name.split(".")[0] + "_initial_coefficients.txt"
     motor_coefs_modified = name.split(".")[0] + "_modified_coefficients.txt"
-    coefficients_textfile.write_coefs(motor_interpolation, motor_coefficients, motor_coefs_modified, 4)
+    coefficients_textfile.write_coefs(motor_interpolation, motor_coefficients, motor_coefs_modified, degree)
 
 
     
