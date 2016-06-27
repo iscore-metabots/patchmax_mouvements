@@ -55,5 +55,5 @@ else:
     os.remove(motor12_filtered)
     
     os.remove(motor)
-    #os.remove(motor_filtered)
+    os.remove(motor_filtered)
 
