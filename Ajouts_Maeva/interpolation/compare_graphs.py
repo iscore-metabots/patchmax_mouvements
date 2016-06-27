@@ -30,7 +30,7 @@ else:
     for i in range(len(coefs_initial)):
         fig = plt.figure()
         l = int(sys.argv[4])
-        x = np.linspace(0, l, l*10)
+        x = np.linspace(2, l-1, l*10)
         init = np.poly1d(coefs_initial[i])
         modif = np.poly1d(coefs_modified[i])
         plt.plot(x, init(x), '-', x, modif(x), '--')

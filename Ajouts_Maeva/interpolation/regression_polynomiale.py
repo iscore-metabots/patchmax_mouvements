@@ -55,7 +55,7 @@ def regression(id_moteur, ligne_depart, ligne_arrivee, source, degre, liss_param
     # Affichage
     if(create_graphs):
         fig = plt.figure()
-        xnew = np.linspace(2, ligne_arrivee-ligne_depart -1, ligne_arrivee*10)
+        xnew = np.linspace(ligne_depart, ligne_arrivee-1, ligne_arrivee*10)
         plt.plot(temps, valeurs_moteur, '.', xnew, polynome(xnew), '-')
         name = "img/motor" + str(id_moteur) + ".png"
         fig.savefig(name)
