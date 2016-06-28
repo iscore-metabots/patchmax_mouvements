@@ -40,23 +40,31 @@ else:
     destination1.write("specialmove\n")
     destination2.write("specialmove\n")
     for i in range(nb_lignes):
-        res2 = "motor"
-        res = "motor1"
-        for j in range(len(polynomes)/2):
-            res = res + " " + str(round(polynomes[j](tempsEcoule),2))
-            res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
-        res = res + '\n'
-        destination1.write(res)
-        res = "motor2"
-        for j in range(len(polynomes)/2, len(polynomes)):
-            res = res + " " + str(round(polynomes[j](tempsEcoule),2))
-            res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
-        res = res + '\n'
-        res2 = res2 + '\n'
-        destination1.write(res)
-        destination2.write(res2)
-        tempsEcoule += intervalle
-
+        if(i>=20 and i<=nb_lignes-20):
+            res2 = "motor"
+            res = "motor1"
+            for j in range(len(polynomes)/2):
+                res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+                res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
+            res = res + '\n'
+            destination1.write(res)
+            res = "motor2"
+            for j in range(len(polynomes)/2, len(polynomes)):
+                res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+                res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
+            res = res + '\n'
+            res2 = res2 + '\n'
+            destination1.write(res)
+            destination2.write(res2)
+            tempsEcoule += intervalle
+        else:
+            res2 = "motor"
+            for j in range(len(polynomes)):
+                res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
+            res2 = res2 + '\n'
+            destination2.write(res2)
+            tempsEcoule += intervalle
+            
     destination1.close()
     destination2.close()
     source.close()
