@@ -23,11 +23,13 @@ else:
         p = np.poly1d(coefs[i])
         polynomes[i] = p
 
-    # Creation du fichier destination
+    # Creation des fichiers destination
     src = sys.argv[1].split("_")
     name = src[0].split("/")[1]
-    dst = "interpolated_txt/interp_" + name + ".txt"
-    destination = open(dst, "w")
+    dst1 = "interpolated_txt/interp_" + name + "12.txt"
+    destination1 = open(dst1, "w")
+    dst2 = "interpolated_txt/interp_" + name + ".txt"
+    destination2 = open(dst2, "w")
 
     # Constante utile
     nb_lignes = taille * 2
@@ -35,19 +37,26 @@ else:
     tempsEcoule = 0
 
     # Ecriture du fichier destination
-    destination.write("specialmove\n")
+    destination1.write("specialmove\n")
+    destination2.write("specialmove\n")
     for i in range(nb_lignes):
+        res2 = "motor"
         res = "motor1"
         for j in range(len(polynomes)/2):
-            res = res + " " + str(polynomes[j](tempsEcoule))
+            res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+            res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
         res = res + '\n'
-        destination.write(res)
+        destination1.write(res)
         res = "motor2"
         for j in range(len(polynomes)/2, len(polynomes)):
-            res = res + " " + str(polynomes[j](tempsEcoule))
+            res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+            res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
         res = res + '\n'
-        destination.write(res)
+        res2 = res2 + '\n'
+        destination1.write(res)
+        destination2.write(res2)
         tempsEcoule += intervalle
 
-    destination.close()
+    destination1.close()
+    destination2.close()
     source.close()
