@@ -31,16 +31,18 @@ else:
     dst2 = "interpolated_txt/interp_" + name + ".txt"
     destination2 = open(dst2, "w")
 
-    # Constante utile
-    nb_lignes = taille * 2
-    intervalle = (taille * 1.0) / nb_lignes
+    # Constantes utiles
+    precision = 10
+    temps_max = taille
+    nb_valeurs = precision * temps_max
+    intervalle = (temps_max * 1.0) / nb_valeurs
     tempsEcoule = 0
 
     # Ecriture du fichier destination
     destination1.write("specialmove\n")
     destination2.write("specialmove\n")
-    for i in range(nb_lignes):
-        if(i>=20 and i<=nb_lignes-20):
+    for i in range(nb_valeurs):
+        if(i>=20*precision and i<=nb_valeurs-20*precision):
             res2 = "motor"
             res = "motor1"
             for j in range(len(polynomes)/2):
@@ -58,11 +60,6 @@ else:
             destination2.write(res2)
             tempsEcoule += intervalle
         else:
-            res2 = "motor"
-            for j in range(len(polynomes)):
-                res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
-            res2 = res2 + '\n'
-            destination2.write(res2)
             tempsEcoule += intervalle
             
     destination1.close()
