@@ -18,8 +18,8 @@ else:
     source = open(sys.argv[1], "r")
     taille = int(sys.argv[2])
     coefs = [[],[],[],[],[],[],[],[],[],[],[],[]]
-    max_value = 350
-    min_value = -350
+    max_value = 150
+    min_value = -150
 
     # Recuperation coefs
     i = 0
