@@ -11,7 +11,7 @@ def send_line(line,serial):
 
     
 if len(sys.argv) != 4:
-    print("Usage: python direct_send.py <txt/source_coefficients.txt> <nombre_lignes_initial> <port>")
+    print("Usage: python direct_send.py <txt/source_coefficients.txt> <nombre lignes dans txt/mouv_interpolation.txt> <port>")
 
 else:
     ser = serial.Serial(sys.argv[3])

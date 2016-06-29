@@ -10,7 +10,7 @@ import coefficients_textfile # fonction write_coefs
 
 
 if len(sys.argv) != 3:
-    print "Usage: python generate_files.py <nom_mouvement> <degree-of-regression-polynom>"
+    print "Usage: python generate_files.py <nom_mouvement> <degree-of-polynomial-regression>"
 else:
     name = "txt/" + sys.argv[1] + ".0"
     os.rename("txt/screenlog.0", name)

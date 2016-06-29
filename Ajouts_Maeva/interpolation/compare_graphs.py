@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 if len(sys.argv) != 4:
-    print("Usage: python compare_graphs.py <source_initial_coefficients.txt> <source_modified_coefficients.txt> <longueur_initiale_texte>")
+    print("Usage: python compare_graphs.py <source_initial_coefficients.txt> <source_modified_coefficients.txt> <nombre lignes dans txt/mouv_interpolation.txt>")
     
 else:
     initial = open(sys.argv[1], "r")

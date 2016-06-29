@@ -2,7 +2,7 @@ import os, sys
 import numpy as np
 
 if len(sys.argv) != 3:
-    print("Usage: python regenerate_files.py <txt/source_coefs.txt> <nombre_lignes_initial>")
+    print("Usage: python regenerate_files.py <txt/source_initial||modified_coefficients.txt> <nombre lignes dans txt/mouv_interpolation.txt>")
 
 else:
     source = open(sys.argv[1], "r")

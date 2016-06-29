@@ -1,5 +1,5 @@
 
-## API - Fonctions Utilisateur (5):
+## API - 6 Fonctions Utilisateur:
 
 * __python generate_files.py \<nom_mouvement_voulu\> \<degre du polynome voulu (pour la regression polynomiale)\> :__   
 Nécessite au préalable d'avoir enregistré un mouvement "screenlog.0" dans le répertoire "txt"   
