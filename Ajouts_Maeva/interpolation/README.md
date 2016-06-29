@@ -1,34 +1,34 @@
 
-## Fonctions Utilisateur (5):
+## API - Fonctions Utilisateur (5):
 
-* __python generate_files.py \<nom_mouvement_voulu\> \<degre de la regression polynomiale\> :__   
+* __python generate_files.py \<nom_mouvement_voulu\> \<degre du polynome voulu (pour la regression polynomiale)\> :__   
 Nécessite au préalable d'avoir enregistré un mouvement "screenlog.0" dans le répertoire "txt"   
-Va créer d'autres fichiers dans le répertoire "__txt__":      
+Cette fonction crée d'autres fichiers dans le répertoire "__txt__":      
     * _mouv.0_ : fichier "screenlog.0" renommé
-    * _mouv.txt_ : fichier contenant le mouvement prêt à être envoyé
+    * _mouv.txt_ : fichier contenant le mouvement prêt à être envoyé (envoi avec la fonction Move.py ou par copier/coller dans le "screen")
     * _mouv\_interpolation.txt_ : fichier servant au calcul des polynomes représentant le mouvement de chaque moteur
     * _mouv\_initial\_coefficients.txt_ : fichier contenant les coefficients de chaque polynome (un polynome représentant un moteur)
-    * _mouv\_modified\_coefficiens.txt_ : fichier identique au fichier précédent, on peut y changer le dernier nombre de chaque ligne (Ce nombre correspond au terme constant du polynome considéré, cela fera ainsi varier l'amplitude du mouvement par rapport à l'amplitude initiale, si on recalcule le mouvement à partir de ce fichier. Attention: Ne pas modifier les autres coefficients!)
+    * _mouv\_modified\_coefficiens.txt_ : fichier identique au fichier précédent, on peut y changer le dernier nombre de chaque ligne (Ce nombre correspond au terme constant du polynome considéré, cela fera ainsi varier l'amplitude du mouvement par rapport à l'amplitude initiale si on recalcule le mouvement à partir de ce fichier. Attention: Ne pas modifier les autres coefficients!)
 
 * __python generate\_graphs.py \<txt/mouv\_interpolation.txt\> \<degré du polynome voulu\> :__   
 Dans le répertoire "__img__", crée pour chaque moteur un graphe représentant les valeurs réelles du moteur et le polynome moyen de degré demandé, obtenu par régression polynomiale.
 
 * __python regenerate_files.py \<txt/mouv_initial_coefficients.txt || txt/mouv_modified_coefficients.txt\> \<nombre de lignes dans le "txt/mouv_interpolation.txt" initial\> :__   
-Crée les fichiers "interp_mouv.txt" et "interp_mouv12.txt" dans le répertoire "__interpolated_txt__".  
-Le fichier "interp_mouv12.txt" contient le mouvement généré à partir des polynomes calculés par régression polynomiale et par lissage.  
-On peut l'appeler avec _mouv\_initial\_coefficients.txt_ou _mouv\_modified\_coefficiens.txt_ suivant si l'on veut que le mouvement soit identique à celui que l'on a enregistré (tout en étant "lissé"), ou si on veut en faire varier l'amplitude.   
-Le fichier "interp_mouv.txt" peut être rappelé avec la fonction "generate_graphs" dans le répertoire "__interpolated_txt__" pour visualiser les nouvelles valeurs des moteurs au cours du temps. Les nouveaux graphes seront visibles dans le répertoire "__interpolated_txt/img__".
+Crée les fichiers "interp_mouv.txt" et "interp_mouv12.txt" dans le répertoire "__interpolated_txt__".   
+On peut l'appeler avec _mouv\_initial\_coefficients.txt_ou _mouv\_modified\_coefficiens.txt_ suivant si l'on veut que le mouvement soit identique à celui que l'on a enregistré (tout en étant "lissé"), ou si on veut en faire varier l'amplitude.     
+Le fichier "interp_mouv12.txt" contient le mouvement généré à partir des polynomes (calculés par régression polynomiale et par lissage). Ce fichier peut-être envoyé au Metabot par la fonction Move.py ou par copier/coller dans le "screen".      
+Le fichier "interp_mouv.txt" peut être rappelé avec la fonction "generate_graphs" dans le répertoire "__interpolated_txt__" pour visualiser les nouvelles valeurs des moteurs au cours du temps. Les nouveaux graphes seront visibles dans le répertoire "__interpolated_txt/img__".  
 
 
 * __python compare_graphs.py \<txt/mouv_initial_coefficients.txt\> \<txt/mouv_modified_coefficients.txt\> \<nombre de lignes dans le "txt/mouv_interpolation.txt" initial\> :__   
-Crée dans le répertoire "__graph_comparison__" un graphe pour chaque moteur représentant le polynome initial associé aux valeurs du moteur, et le polynome modifié par l'utilisateur.
+Crée dans le répertoire "__graph_comparison__" un graphe pour chaque moteur représentant le polynome initial associé aux valeurs du moteur, et le polynome modifié (en amplitude) par l'utilisateur.
 
 
-* __python direct_send.py \<txt/mouv_initial|modified_coefficients.txt\> \<nombre de lignes dans le "mouv.txt" initial\> \<port serie\> :__   
+* __python direct_send.py \<txt/mouv_initial||modified_coefficients.txt\> \<nombre de lignes dans le "txt/mouv_interpolation.txt" initial\> \<port serie\> :__   
 Envoie directement le mouvement au Metabot à partir des coefficients du polynome de chaque moteur, et sans créer de fichier texte intermédiraire.   
 
-* __python Move.py \<txt/mouv.txt || interpolated_txt/interp_mouv.txt\> \<port\>:__   
-Envoie le fichier texte au Metabot (le fichier texte contenant le mouvement).
+* __python Move.py \<txt/mouv.txt || interpolated_txt/interp_mouv12.txt\> \<port\>:__   
+Envoie le fichier texte au Metabot (fichier texte contenant le mouvement).
 
 
 
