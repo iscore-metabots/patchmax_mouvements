@@ -8,6 +8,8 @@ else:
     source = open(sys.argv[1], "r")
     taille = int(sys.argv[2])
     coefs = [[],[],[],[],[],[],[],[],[],[],[],[]]
+    max_value = 350
+    min_value = -350
 
     # Recuperation coefs
     i = 0
@@ -46,19 +48,37 @@ else:
             res2 = "motor"
             res = "motor1"
             for j in range(len(polynomes)/2):
-                res = res + " " + str(round(polynomes[j](tempsEcoule),2))
-                res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
+                if(polynomes[j](tempsEcoule) < min_value):
+                    res = res + " " + str(min_value)
+                    res2 = res2 + " " + str(min_value)
+                elif(polynomes[j](tempsEcoule) > max_value):
+                    res = res + " " + str(max_value)
+                    res2 = res2 + " " + str(max_value)
+                else:
+                    res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+                    res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
+                    
             res = res + '\n'
             destination1.write(res)
             res = "motor2"
+            
             for j in range(len(polynomes)/2, len(polynomes)):
-                res = res + " " + str(round(polynomes[j](tempsEcoule),2))
-                res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
+                if(polynomes[j](tempsEcoule) < min_value):
+                    res = res + " " + str(min_value)
+                    res2 = res2 + " " + str(min_value)
+                elif(polynomes[j](tempsEcoule) > max_value):
+                    res = res + " " + str(max_value)
+                    res2 = res2 + " " + str(max_value)
+                else:
+                    res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+                    res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
+                
             res = res + '\n'
             res2 = res2 + '\n'
             destination1.write(res)
             destination2.write(res2)
             tempsEcoule += intervalle
+            
         else:
             tempsEcoule += intervalle
             

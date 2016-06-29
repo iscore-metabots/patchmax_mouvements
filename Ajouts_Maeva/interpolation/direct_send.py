@@ -7,6 +7,9 @@ def send_line(line,serial):
     sleep(0.01)
 
 
+
+
+    
 if len(sys.argv) != 4:
     print("Usage: python direct_send.py <txt/source_coefficients.txt> <nombre_lignes_initial> <port>")
 
@@ -15,6 +18,8 @@ else:
     source = open(sys.argv[1], "r")
     taille = int(sys.argv[2])
     coefs = [[],[],[],[],[],[],[],[],[],[],[],[]]
+    max_value = 350
+    min_value = -350
 
     # Recuperation coefs
     i = 0
@@ -30,25 +35,40 @@ else:
         p = np.poly1d(coefs[i])
         polynomes[i] = p
         
-    # Constante utile
-    nb_lignes = taille * 2
-    intervalle = (taille * 1.0) / nb_lignes
+    # Constantes utiles
+    precision = 10
+    temps_max = taille
+    nb_valeurs = precision * temps_max
+    intervalle = (temps_max * 1.0) / nb_valeurs
     tempsEcoule = 0
+
 
     # Envoi des lignes
     send("specialmove",ser)
-    for i in range(nb_lignes):
-        res = "motor1"
-        for j in range(len(polynomes)/2):
-            res = res + " " + str(polynomes[j](tempsEcoule))
-        res = res + '\n'
-        send_line(res,ser)
-        res = "motor2"
-        for j in range(len(polynomes)/2, len(polynomes)):
-            res = res + " " + str(polynomes[j](tempsEcoule))
-        res = res + '\n'
-        send_line(res,ser)
-        tempsEcoule += intervalle
+    for i in range(nb_valeurs):
+        if(i>=20*precision and i<=nb_valeurs-20*precision):
+            res = "motor1"
+            for j in range(len(polynomes)/2):
+                if(polynomes[j](tempsEcoule) < min_value):
+                    res = res + " " + str(min_value)
+                elif(polynomes[j](tempsEcoule) > max_value):
+                    res = res + " " + str(max_value)
+                else:
+                    res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+            res = res + '\n'
+            send_line(res,ser)
+            res = "motor2"
+            
+            for j in range(len(polynomes)/2, len(polynomes)):
+                if(polynomes[j](tempsEcoule) < min_value):
+                    res = res + " " + str(min_value)
+                elif(polynomes[j](tempsEcoule) > max_value):
+                    res = res + " " + str(max_value)
+                else:
+                    res = res + " " + str(round(polynomes[j](tempsEcoule),2))
+            res = res + '\n'
+            send_line(res,ser)
+            tempsEcoule += intervalle
     
     ser.close()
     source.close()
