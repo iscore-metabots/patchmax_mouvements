@@ -33,9 +33,7 @@ def regression(id_moteur, ligne_depart, ligne_arrivee, source, degre, liss_param
     # Stockage des valeurs du moteur
     valeurs_moteur = []
     for i in range(ligne_depart, ligne_arrivee + 1):
-        #print i
         ligne = src.readline().rstrip('\n').split(" ")
-        #print ligne
         valeurs_moteur = valeurs_moteur + [ligne[id_moteur]]
 
     # Temps
