@@ -34,7 +34,7 @@ else:
     destination2 = open(dst2, "w")
 
     # Constantes utiles
-    precision = 10
+    precision = 5
     temps_max = taille
     nb_valeurs = precision * temps_max
     intervalle = (temps_max * 1.0) / nb_valeurs
