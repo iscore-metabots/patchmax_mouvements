@@ -75,7 +75,7 @@ else:
                         res = res + " " + str(round(polynomes[j](tempsEcoule),2))
                         res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
                         
-                if(j%3 == 1):
+                if(j%3 == 2):
                     if(polynomes[j](tempsEcoule) < min_value2):
                         res = res + " " + str(min_value2)
                         res2 = res2 + " " + str(min_value2)
@@ -84,7 +84,7 @@ else:
                         res2 = res2 + " " + str(max_value2)
                     else:
                         res = res + " " + str(round(polynomes[j](tempsEcoule),2))
-                        res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))  
+                        res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
 
                     
             res = res + '\n'
@@ -114,7 +114,7 @@ else:
                         res = res + " " + str(round(polynomes[j](tempsEcoule),2))
                         res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
                         
-                if(j%3 == 1):
+                if(j%3 == 2):
                     if(polynomes[j](tempsEcoule) < min_value2):
                         res = res + " " + str(min_value2)
                         res2 = res2 + " " + str(min_value2)
@@ -123,7 +123,7 @@ else:
                         res2 = res2 + " " + str(max_value2)
                     else:
                         res = res + " " + str(round(polynomes[j](tempsEcoule),2))
-                        res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))  
+                        res2 = res2 + " " + str(round(polynomes[j](tempsEcoule),2))
 
                 
             res = res + '\n'
