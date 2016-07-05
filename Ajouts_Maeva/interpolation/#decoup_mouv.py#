@@ -1,0 +1,46 @@
+import os, sys
+#from collections import OrderedDict
+
+def decoup_moteur(id_moteur, source):
+    src = open(source,"r")
+
+    #Avancee jusqu'a la ligne de depart
+    src.readline() # lecture du "specialmove"
+
+    # Stockage premiere valeur dans dict
+    d = dict()
+    ligne = src.readline().rstrip('\n').split(" ")
+    d[1] = float(ligne[id_moteur])
+
+    # Initialisation des variables de parcours
+    derniere_visitee = ligne
+    courante = src.readline().rstrip('\n').split(" ")
+    tendance = 0
+    if(float(derniere_visitee[id_moteur]) > float(courante[id_moteur])):
+        tendance = -1
+    else if(float(derniere_visitee[id_moteur]) < float(courante[id_moteur])):
+        tendance = 1
+    else if(float(derniere_visitee[id_moteur]) == float(courante[id_moteur])):
+        tendance = 0
+    tendance_generale = tendance
+    
+    
+    # Stockage des valeurs du moteur
+    valeurs_moteur = []
+    for line in src:
+        ligne = line.rstrip('\n').split(" ")
+        valeurs_moteur = valeurs_moteur + [float(ligne[id_moteur])]
+
+        
+    if(float(derniere_visitee[id_moteur]) > float(courante[id_moteur])):
+        tendance = -1
+    else if(float(derniere_visitee[id_moteur]) < float(courante[id_moteur])):
+        tendance = 1
+    else if(float(derniere_visitee[id_moteur]) == float(courante[id_moteur])):
+        tendance = 0
+
+    
+    src.close()
+
+
+decoup_moteur(1,"txt/glide_interpolation.txt")
