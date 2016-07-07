@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, serial
 from collections import OrderedDict
 import numpy as np
 
@@ -126,15 +126,52 @@ def generate_file(source):
     for ligne in range(taille):
         res = "motor1"
         for i in range(6):
-            res = res + " " + str(values[i][taille])
+            res = res + " " + str(values[i][ligne])
         res += '\n'
         dst.write(res)
         res = "motor2"
         for i in range(6,12):
-            res = res + " " + str(values[i][taille])
+            res = res + " " + str(values[i][ligne])
         res += '\n'
         dst.write(res)
     dst.close()
-    
-    
-generate_file("txt/glide_interpolation.txt")
+
+
+
+def send_line(line,serial):
+    serial.write(line)
+    sleep(0.01)
+
+
+def direct_send(source, port):
+
+    # Recup valeurs de tous les moteurs
+    values = decoup_interp_mouv(source)
+
+    # Ouverture Port
+    ser = serial.Serial(port)
+
+    # Ecriture premiere ligne
+    send_line("specialmove\n",ser)
+
+    # Recuperation nombre de lignes a generer
+    taille = file_size(source)-2
+
+    for ligne in range(taille):
+        res = "motor1"
+        for i in range(6):
+            res = res + " " + str(values[i][ligne])
+        res += '\n'
+        send_line(res,ser)
+        res = "motor2"
+        for i in range(6,12):
+            res = res + " " + str(values[i][ligne])
+        res += '\n'
+        send_line(res,ser)
+    ser.close()    
+
+
+if len(sys.argv) == 1:
+    generate_file("txt/glide_interpolation.txt")
+else:
+    direct_send("txt/glide_interpolation.txt", sys.argv[1])
