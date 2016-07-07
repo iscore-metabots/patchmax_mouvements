@@ -1,7 +1,14 @@
 import os, sys, serial
 from collections import OrderedDict
 import numpy as np
+import matplotlib.pyplot as plt
 
+min_value0 = -96
+max_value0 = 97
+min_value1 = -98
+max_value1 = 110
+min_value2 = -134
+max_value2 = 145
 
 
 def file_size(source):
@@ -97,11 +104,34 @@ def decoup_interp_mouv(source):
             y = [decoup[moteur][tab_keys[i]],decoup[moteur][tab_keys[i+1]]]
             coefs = np.polyfit(x,y,1)
             poly = np.poly1d(coefs)
-            #
             xnew = np.linspace(tab_keys[i], tab_keys[i+1], tab_keys[i+1] - tab_keys[i])
-            ynew = poly(xnew)
+            #ynew = poly(xnew)
             for val in range(len(xnew)):
-                tab[moteur] += [round(poly(val),2)]
+                if(poly(val)>200 or poly(val)<-200):
+                    tab[moteur] += [tab[moteur][len(tab[moteur])-1]]
+                elif(moteur%3==0):
+                    if(poly(val)<min_value0):
+                        tab[moteur] += [min_value0]
+                    elif(poly(val)>max_value0):
+                        tab[moteur] += [max_value0]
+                    else:
+                        tab[moteur] += [round(poly(val),2)]
+                        
+                elif(moteur%3==1):
+                    if(poly(val)<min_value1):
+                        tab[moteur] += [min_value1]
+                    elif(poly(val)>max_value1):
+                        tab[moteur] += [max_value1]
+                    else:
+                        tab[moteur] += [round(poly(val),2)]
+                
+                elif(moteur%3==2):
+                    if(poly(val)<min_value2):
+                        tab[moteur] += [min_value2]
+                    elif(poly(val)>max_value2):
+                        tab[moteur] += [max_value2]
+                    else:
+                        tab[moteur] += [round(poly(val),2)] 
     return tab
 
 
@@ -137,6 +167,20 @@ def generate_file(source):
     dst.close()
 
 
+def draw_graphs(source):
+    # Recup valeurs de tous les moteurs
+    values = decoup_interp_mouv(source)
+    xnew = []
+    for i in range(len(values[0])):
+        xnew += [i]
+    for moteur in range(len(values)):
+        fig = plt.figure()
+        plt.plot(xnew, values[moteur],"-")
+        name = "decoup_mouv/motor" + str(moteur+1) + ".png"
+        fig.savefig(name)
+
+
+    
 
 def send_line(line,serial):
     serial.write(line)
@@ -171,7 +215,10 @@ def direct_send(source, port):
     ser.close()    
 
 
+
+    
 if len(sys.argv) == 1:
     generate_file("txt/glide_interpolation.txt")
+    draw_graphs("txt/glide_interpolation.txt")
 else:
     direct_send("txt/glide_interpolation.txt", sys.argv[1])
