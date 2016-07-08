@@ -11,7 +11,7 @@ Movement library for Metabots and movement interpolation
 
 ### Documentation:
 * The operating of the MAX/MSP interface is explained in __MOUVEMENT.md__.
-* The operating of the interpolation part in explained in __API.md__. A documentation of each function is available by typing help(name_of_function) in shell.
+* The operating of the interpolation part is explained in __API.md__. A documentation of each function is available by typing help(name_of_function) in shell.
 
 
 
