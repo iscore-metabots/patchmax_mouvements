@@ -7,11 +7,11 @@ Movement library for Metabots and movement interpolation
 
 ### Development:
 * The API for interpolation is developped in Python and constituted of 7 main functions.
-* A movement can be sent through the MAX/MSP interface or by using Python functions (read __MOUVEMENT.md__ for more informations).
+* A movement can be sent through the MAX/MSP interface or by using Python functions (read __interpolation/MOUVEMENT.md__ for more informations).
 
 ### Documentation:
-* The operating of the MAX/MSP interface is explained in __MOUVEMENT.md__.
-* The operating of the interpolation part is explained in __API.md__. A documentation of each function is available by typing help(name_of_function) in shell.
+* The operating of the MAX/MSP interface is explained in __interpolation/MOUVEMENT.md__.
+* The operating of the interpolation part is explained in __interpolation/README.md__. A documentation of each function is available by typing help(name_of_function) in shell.
 
 
 
