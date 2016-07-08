@@ -1,49 +1,17 @@
+Movement library for Metabots and movement interpolation
+========================================================
 
-## Enregistrer un mouvement:
+#This project is divided into two parts:
+* __Creation of a movement library__: Max/MSP interface and Python functions to send these movements to a Metabot.
+* __Interpolation__: Computation of a curve close to the movement points in order to be able to make an initial movement vary.  
 
-* installer firmware Robin (permettant au metabot de comprendre "specialmove", "learning", "motor1" et "motor2")
-* lancer commande "sudo screen \<port serie\> 115200"
-* lancer commande "ctrl-a H" —> lance l’enregistrement
-* lancer commande "learning"
-* faire manuellement au robot le mouvement souhaité
-* lancer commande "ctrl-a \" (ou fermer le terminal et éteindre le robot) —> stoppe l’enregistrement
-* déplacer le fichier "screenlog.0" dans le répertoire "interpolation"
-* aller dans le répertoire "interpolation"
-* lancer commande "python generate_files.py \<nom_mouvement\>" —> création de fichiers dans le répertoire "txt"
+#Development:
+* The API for interpolation is developped in Python and constituted of 7 main functions.
+* A movement can be sent through the MAX/MSP interface or by using Python functions (read __MOUVEMENT.md__ for more informations).
 
-
-
-
-## Lancer un mouvement (en ligne de commande):
-
-* établir une connection bluetooth avec le metabot
-* aller dans le répertoire "interpolation"
-* lancer commande "python Move.py txt/nom_mouv.txt \<port serie\>"
-	
+#Documentation:
+* The operating of the MAX/MSP interface is explained in __MOUVEMENT.md__.
+* The operating of the interpolation part in explained in __API.md__. A documentation of each function is available by typing help(name_of_function) in shell.
 
 
 
-## Lancer un mouvement depuis screen:
-
-* lancer commande "sudo screen \<port serie\> 115200"
-* lancer commande "start"
-* copier/coller l'intégralité du fichier "interpolation/txt/nom_mouv.txt" dans le screen
-
-
-
-
-## Lancer un mouvement depuis Max/MSP:
-
-* établir une connection bluetooth avec le metabot
-* aller dans le répertoire "Max_IHM" puis "lib_fixe" ou "lib_vitesse" et cliquer sur le mouvement voulu (sera fonctionnel quand la librairie sera créée)
-* deux patchs sont pour l'instant à disposition: mouvement fixe + mouvement dont la vitesse est contrôlable
-
-
-
-
-## Ajouter un mouvement dans l’interface Max/MSP:
-
-* copier/coller le fichier "interpolation/txt/nom_mouv.txt" dans le répertoire "Max_IHM"
-* aller dans le répertoire "Max_IHM/Lib_\<choix\>.maxpat" (choix: fixe ou gestion vitesse)
-* copier/coller le modèle de patch
-* marquer le nom du mouvement (le même que le .txt) à la place de "NAME"

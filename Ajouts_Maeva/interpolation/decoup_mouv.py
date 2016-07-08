@@ -175,7 +175,7 @@ def draw_graphs(source):
         xnew += [i]
     for moteur in range(len(values)):
         fig = plt.figure()
-        plt.plot(xnew, values[moteur],"-")
+        plt.plot(xnew, values[moteur],".")
         name = "decoup_mouv/motor" + str(moteur+1) + ".png"
         fig.savefig(name)
 
