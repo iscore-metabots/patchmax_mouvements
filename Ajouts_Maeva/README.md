@@ -13,9 +13,9 @@ Movement library for Metabots and movement interpolation
 * The operating of the MAX/MSP interface and the generation of movements are explained in __MOUVEMENT.md__.
 * The operating of the interpolation part is explained in __interpolation/README.md__.
 
-### State of the project and problems still not resolved
+### State of the project and problems still not resolved: 
 
-See file "TODO.md".
+See file __TODO.md__.
 
 
 

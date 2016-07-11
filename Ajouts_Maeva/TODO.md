@@ -1,7 +1,7 @@
 ### Progression of the MAX interface part
 
 It enables the user to send a textfile (corresponding to the movement orders, aka: the values of each motor through time).  
-It hasn't been fully tested with the Metabot (only tested with "print"), but uses the same sending method as used by Robin in other efficient Maxpatchs. In order to work, the bluetooth connection needs to be maintained. It can be maintained by two methods: opening a "screen" on a terminal or using an external application to keep the connection.  
+It hasn't been fully tested with the Metabot (only tested with "print"), but uses the same sending method as used by Robin (see "../Travail_Robin" repertory) in other efficient Maxpatchs. In order to work, the bluetooth connection needs to be maintained. It can be maintained by two methods: opening a "screen" on a terminal or using an external application to keep the connection.  
 __Problem: A way the maintain the bluetooth connection on Mac and Windows needs to be found!__ 
 
 

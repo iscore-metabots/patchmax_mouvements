@@ -18,7 +18,7 @@
 
 * établir une connection bluetooth avec le metabot (via Bluemanager sur Linux)
 * aller dans le répertoire "interpolation"
-* lancer commande "python Move.py txt/nom_mouv.txt \<port serie\>"
+* lancer commande "python Move.py \<txt/nom_mouv.txt\> \<port serie\>"
 	
 
 
@@ -37,6 +37,7 @@
 * établir une connection bluetooth avec le metabot (Problème: maintient de la connection difficile sur Mac et Windows)
 * aller dans le répertoire "Max_IHM" puis "lib_fixe" ou "lib_vitesse" et cliquer sur le mouvement voulu
 * deux patchs sont pour l'instant à disposition: mouvement fixe + mouvement dont la vitesse est contrôlable (pour celui dont la vitesse est contrôlable, faire varier le curseur après avoir lancé le mouvement)
+* 6 mouvements sont pour l'instant à disposition à titre d'exemple, l'utilisateur est invité à suivre la procédure ci-dessus pour générer ses propres mouvements
 
 
 
