@@ -2,8 +2,8 @@ import os, sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-if len(sys.argv) != 4:
-    print("Usage: python compare_graphs.py <source_initial_coefficients.txt> <source_modified_coefficients.txt> <nombre lignes dans txt/mouv_interpolation.txt>")
+if len(sys.argv) != 3:
+    print("Usage: python compare_graphs.py <txt/source_initial_coefficients.txt> <txt/source_modified_coefficients.txt>")
     
 else:
     initial = open(sys.argv[1], "r")
@@ -11,6 +11,14 @@ else:
 
     coefs_initial = [[],[],[],[],[],[],[],[],[],[],[],[]]
     coefs_modified = [[],[],[],[],[],[],[],[],[],[],[],[]]
+
+    name = sys.argv[1].split("/")[1].split("_")[0]
+    name_interpolation = "txt/" + name + "_interpolation.txt"
+    s = open(name_interpolation, "r")
+    taille = 0
+    for line in s:
+        taille += 1
+        
 
     i = 0
     for line in initial:
@@ -29,7 +37,7 @@ else:
     print("\nGraphs comparison being calculated ...\n")
     for i in range(len(coefs_initial)):
         fig = plt.figure()
-        l = int(sys.argv[3])
+        l = taille
         x = np.linspace(2, l-1, l*10)
         init = np.poly1d(coefs_initial[i])
         modif = np.poly1d(coefs_modified[i])

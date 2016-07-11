@@ -3,6 +3,8 @@ from collections import OrderedDict
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
 min_value0 = -96
 max_value0 = 97
 min_value1 = -98
@@ -11,6 +13,11 @@ min_value2 = -134
 max_value2 = 145
 
 
+
+
+
+
+# Retourne taille de la source passee en parametre
 def file_size(source):
     src = open(source, "r")
     taille = 0
@@ -20,6 +27,11 @@ def file_size(source):
     return taille
 
 
+
+
+
+
+# Retourne un dictionnaire (ligne i: valeur moteur, ligne j:val moteur, etc) -> seules les lignes ou la tendance change sont marquees (ex: passage de valeurs croissantes a valeurs decroissantes)
 def decoup_moteur(id_moteur, source):
     src = open(source,"r")
 
@@ -76,6 +88,10 @@ def decoup_moteur(id_moteur, source):
 
 
 
+
+
+
+# Calcule le dictionnaire ci-dessus pour chaque moteur 
 def decoup_mouv(source):
     tab =[]
     for i in range(1,13):
@@ -91,6 +107,8 @@ poly = np.poly1d(coefs)
 """
 
 
+
+# Interpolation entre deux valeurs successives de chaque dictionnaire
 def decoup_interp_mouv(source):
     tab = [[],[],[],[],[],[],[],[],[],[],[],[]]
     decoup = decoup_mouv(source) # tab de dictionnaires
@@ -137,6 +155,11 @@ def decoup_interp_mouv(source):
 
 
 
+
+
+
+
+# Generation d'un fichier contenant le mouvement (dans le repertoire "decoup_mouv")
 def generate_file(source):
 
     # Recup valeurs de tous les moteurs
@@ -167,6 +190,10 @@ def generate_file(source):
     dst.close()
 
 
+
+
+    
+# Trace toutes les interpolations successives pour chaque moteur
 def draw_graphs(source):
     # Recup valeurs de tous les moteurs
     values = decoup_interp_mouv(source)
@@ -180,13 +207,20 @@ def draw_graphs(source):
         fig.savefig(name)
 
 
-    
 
+        
+    
+# Fonction annexe d'envoi d'une ligne de texte au port serie
 def send_line(line,serial):
     serial.write(line)
     sleep(0.01)
 
 
+
+    
+
+
+# Envoi du mouvement directement au Metabot sans creer de fichier texte mais en partant directement des interpolations
 def direct_send(source, port):
 
     # Recup valeurs de tous les moteurs
@@ -216,9 +250,16 @@ def direct_send(source, port):
 
 
 
+
+
+
     
-if len(sys.argv) == 1:
-    generate_file("txt/glide_interpolation.txt")
-    draw_graphs("txt/glide_interpolation.txt")
+
+# Appel des fonctions par l'utilisateur
+if len(sys.argv) == 2:
+    generate_file(sys.argv[1])
+    draw_graphs(sys.argv[1])
+elif len(sys.argv) == 3:
+    direct_send(sys.argv[0], sys.argv[1])
 else:
-    direct_send("txt/glide_interpolation.txt", sys.argv[1])
+    print("\n Usage to generate file and graphs: python decoup_mouv.py txt/source_interpolation.txt\n Usage to send the movement directly after interpolation: python decoup_mouv.py txt/source_interpolation.txt <port-serie>\n")

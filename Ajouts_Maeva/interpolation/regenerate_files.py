@@ -1,12 +1,11 @@
 import os, sys
 import numpy as np
 
-if len(sys.argv) != 3:
-    print("Usage: python regenerate_files.py <txt/source_initial||modified_coefficients.txt> <nombre lignes dans txt/mouv_interpolation.txt>")
+if len(sys.argv) != 2:
+    print("Usage: python regenerate_files.py <txt/source_initial||modified_coefficients.txt>")
 
 else:
     source = open(sys.argv[1], "r")
-    taille = int(sys.argv[2])
     coefs = [[],[],[],[],[],[],[],[],[],[],[],[]]
     min_value0 = -96
     max_value0 = 97
@@ -14,6 +13,13 @@ else:
     max_value1 = 110
     min_value2 = -134
     max_value2 = 145
+
+    name = sys.argv[1].split("/")[1].split("_")[0]
+    name_interpolation = "txt/" + name + "_interpolation.txt"
+    s = open(name_interpolation, "r")
+    taille = 0
+    for line in s:
+        taille += 1
     
 
     # Recuperation coefs
